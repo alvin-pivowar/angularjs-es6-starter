@@ -4,8 +4,9 @@ import RoutingItem from "./routingItem.model.es6";
 
 const routingInfo = [
     new RoutingItem(0, "Home", "/home"),
-    new RoutingItem(1, "Controller", "/controller"),
-    new RoutingItem(2, "Service", "/service"),
+    new RoutingItem(1, "Start Up", "/startup"),
+    new RoutingItem(2, "Controller", "/controller"),
+    new RoutingItem(3, "Service", "/service"),
 ];
 
 class RoutingService {

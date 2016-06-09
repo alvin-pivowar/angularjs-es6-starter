@@ -4,6 +4,7 @@ class RoutingConfig {
     constructor($routeProvider) {
         $routeProvider
             .when("/home", { templateUrl: require("../content/home.html")})
+            .when("/startup", { templateUrl: require("../content/startup.html")})
             .when("/controller", { templateUrl: require("../content/controller.html")})
             .when("/service", { templateUrl: require("../content/service.html")})
             .otherwise({ redirectTo: "/home" });

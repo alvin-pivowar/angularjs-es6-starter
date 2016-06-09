@@ -1,3 +1,5 @@
+// Copyright (c) Alvin Pivowar 2016
+
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 
