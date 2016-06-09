@@ -1,18 +1,17 @@
 // Copyright (c) Alvin Pivowar 2016
 
 class RoutingConfig {
-    constructor($routeProvider) {
-        $routeProvider
-            .when("/home", { templateUrl: require("../content/home.html")})
-            .when("/startup", { templateUrl: require("../content/startup.html")})
-            .when("/controller", { templateUrl: require("../content/controller.html")})
-            .when("/service", { templateUrl: require("../content/service.html")})
-            .otherwise({ redirectTo: "/home" });
+    constructor($routeProvider, routingServiceProvider) {
+        routingServiceProvider.routingInfo.forEach(item => {
+            $routeProvider.when(item.route, { templateUrl: item.templateUrl });
+        });
+
+        $routeProvider.otherwise({ redirectTo: routingServiceProvider.routingInfo[0].route });
     }
 
-    static factory($routeProvider) { return new RoutingConfig($routeProvider); }
+    static factory($routeProvider, routingServiceProvider) { return new RoutingConfig($routeProvider, routingServiceProvider); }
 }
 
-RoutingConfig.$inject = ["$routeProvider", RoutingConfig.factory];
+RoutingConfig.$inject = ["$routeProvider", "routingServiceProvider", RoutingConfig.factory];
 
 export default RoutingConfig;

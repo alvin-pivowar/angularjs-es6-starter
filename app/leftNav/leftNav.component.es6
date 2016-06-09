@@ -7,18 +7,15 @@ class LeftNavController {
 
         routingService.getRoutingInfo().then(response => {
             this.routing = response.data;
-
-            this.routing.forEach(item => {
-                if ($location.path().indexOf(item.route) !== -1)
-                    this.activeTabIndex = item.ordinal;
-            });
         });
 
         $scope.$watch(() => $location.path(), () => {
-            this.routing.forEach(item => {
-                if ($location.path().indexOf(item.route) !== -1)
+            for (let item of this.routing) {
+                if ($location.path().indexOf(item.route) !== -1) {
                     this.activeTabIndex = item.ordinal;
-            });
+                    break;
+                }
+            }
         });
     }
 
@@ -37,11 +34,16 @@ class LeftNav {
     static get name() { return "leftNav"; }
 
     constructor() {
+        this.bindToController = {};
         this.controller = LeftNavController.$inject;
         this.controllerAs = "vm";
         this.replace = true;
         this.restrict = 'E';
+        this.scope = false;
         this.templateUrl = require("./leftNav.html");
+    }
+
+    link(scope, elem, attrs) {
     }
 
     static factory() { return new LeftNav(); }
