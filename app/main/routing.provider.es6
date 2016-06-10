@@ -4,7 +4,7 @@ import RoutingItem from "./routingItem.model.es6";
 
 let index = 0;
 const routingInfo = [
-    new RoutingItem(index++, "Home", "/home", require("../content/home.html")),
+    new RoutingItem(index++, "Home", "/home", require("../content/home/home.html")),
     new RoutingItem(index++, "Start Up", "/startup", require("../content/startupTopic.html")),
     new RoutingItem(index++, "Main", "/main", require("../content/mainTopic.html")),
     new RoutingItem(index++, "Left Nav", "/leftNav", require("../content/leftNavTopic.html")),
